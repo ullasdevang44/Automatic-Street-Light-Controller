@@ -7,7 +7,7 @@ This project demonstrates an automatic street light system using an LDR and Ardu
 - Energy-efficient design.
 - Fully automatic operation.
 - Simple and easy to build.
-
+ 
 
 ## Components Required
 1. Arduino Uno
