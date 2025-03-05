@@ -1,0 +1,35 @@
+// Automatic Street Light Controller using LDR and Arduino
+
+// Define pins
+const int LDR_PIN = A0;  // LDR connected to analog pin A0
+const int LED_PIN = 9;   // LED connected to digital pin 9
+
+// Variables
+int ldrValue = 0;        // To store the LDR value
+const int threshold = 500; // Threshold value for light intensity
+
+void setup() {
+  pinMode(LED_PIN, OUTPUT);   // Set LED pin as OUTPUT
+  Serial.begin(9600);         // Initialize serial communication
+}
+
+void loop() {
+  // Read LDR value
+  ldrValue = analogRead(LDR_PIN);
+
+  // Print the LDR value to the Serial Monitor
+  Serial.print("LDR Value: ");
+  Serial.println(ldrValue);
+
+  // Check the light intensity and control the LED
+  if (ldrValue < threshold) {
+    digitalWrite(LED_PIN, HIGH);  // Turn ON the LED (simulate streetlight)
+    Serial.println("Streetlight ON");
+  } else {
+    digitalWrite(LED_PIN, LOW);   // Turn OFF the LED
+    Serial.println("Streetlight OFF");
+  }
+
+  // Delay for stability
+  delay(100);
+}
